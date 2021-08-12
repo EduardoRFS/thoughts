@@ -23,3 +23,29 @@ Knowing more people from the academia is something that I desire, it's a big ple
 Are masters even real? I feel like a master is just a human being which is on the edge of the knowledge, pushing it forwards.
 
 Can one became a master "alone" in the age of the internet? Can you truly know that you know the state of the art on something?
+
+## Achievements
+
+> What should a man try to achieve?
+
+### Money
+
+After having enough money for a living, why do I still try to get more and more? When is more enough? Is a billion us dollars enough?
+
+Probably not, and this truly concerns me, what if I keep running the hedonic treadmill forever? Will the feeling still be the same? Can I say that I'm happy on that?
+
+### Knowledge
+
+Should a man always try to pursue knowledge? Or is the ignorance the ultimate blessing?
+
+I trully don't know, but as a human in this age, I know that I will never be truly happy about my level of knowledge.
+
+### Social
+
+What if a man is alone? Or even worse, what if all man are also alone?
+
+Well, I'm not into having the absolute definition of alone, so I will choose a useful one.
+
+Can a man be happy alone? Family? Friends? A loved one? Is it reasonable to ignore it?
+
+Should one try to change this?
