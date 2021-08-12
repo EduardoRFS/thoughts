@@ -49,3 +49,9 @@ Well, I'm not into having the absolute definition of alone, so I will choose a u
 Can a man be happy alone? Family? Friends? A loved one? Is it reasonable to ignore it?
 
 Should one try to change this?
+
+## Plato's Cave
+
+> Leaving the cave was a mistake
+
+Why are humans so interested in an unknown world where everything it's quite likely worse? Should a man trying to find the truth of the world and sacrificing his own well being to achieve this be called crazy?
