@@ -65,3 +65,9 @@ Can the parallel GC runs during the initialization of the module? Root_initializ
 ### comballoc
 
 We cannot combine two allocations for mutable and immutable, but ideally we should be able to combine alloc -> alloc(mut) -> alloc
+
+## multiple major heap
+
+As Caml_state already exists with a bit of work we could lift the major heap to it so that in the same process multiple threads can be running it's own OCaml with independent GCs.
+
+Also great on Windows, as Unix.fork is really slow there.
