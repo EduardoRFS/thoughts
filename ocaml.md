@@ -31,3 +31,37 @@ The goal is to somehow get OCaml be lower latency, but actually the things that 
 But the latency improvement aspect is by hoping that we can prevent compacting the major a lot of times if we can find big holes in the major, created by operations like `List.map`, by putting the minor data inside the major hole.
 
 This should also allow to have a refcounted only heap, which may be interesting.
+
+## offloading GC
+
+Goal is to offload considerable computing of major heap collections to a different thread.
+
+### Memory is mutable
+
+As memory is mutable, any scanning in parallel with the worker thread can only detect things that were live recently, but never be a proof that something is dead.
+
+**Solution**: segregate heaps in mutable and immutable, immutable memory can be scanned in parallel safely and as OCaml memory is mostly immutable this should be a considerable help.
+
+### mutable -> immutable
+
+Pointers from the mutable to immutable memory can not be detected in parallel which makes makes so that scanning the immutable memory ensures you that some values are definitely alive but not having a reference doesn't mean the value is necessarily dead.
+
+**Solution**: registers + reference table = roots, use minor to get registers
+
+Can also add a tag of externally referenced in the header of a block, and mark it during caml_modify or initialize.
+
+Both will affect performance of mutable blocks, by making initialization and / or mutation slightly slower.
+
+This means that initializing fields on
+
+- major work during minor collection
+- segregated heap's(immutable and mutable)
+- tagging
+
+### modules are mutable
+
+Can the parallel GC runs during the initialization of the module? Root_initialization
+
+### comballoc
+
+We cannot combine two allocations for mutable and immutable, but ideally we should be able to combine alloc -> alloc(mut) -> alloc
