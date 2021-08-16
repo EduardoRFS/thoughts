@@ -30,6 +30,7 @@
 ## Programming
 
 - [ ] give a look on this file
+- [ ] improve nominal typing session
 
 ## Life
 
