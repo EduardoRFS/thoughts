@@ -66,8 +66,16 @@ Can the parallel GC runs during the initialization of the module? Root_initializ
 
 We cannot combine two allocations for mutable and immutable, but ideally we should be able to combine alloc -> alloc(mut) -> alloc
 
+### TRMC
+
+How does this immutability interacts with TRMC? Can we treat TRMC data somehow as immutable? Maybe by first cleaning it?
+
 ## multiple major heap
 
 As Caml_state already exists with a bit of work we could lift the major heap to it so that in the same process multiple threads can be running it's own OCaml with independent GCs.
 
 Also great on Windows, as Unix.fork is really slow there.
+
+## frametable on caml_call_gc
+
+OCaml emit's an additional label for frametable on GC, my hypothesis is that this could be removed so that the label always points one instruction before the jmp, that would lead to slightly better compaction and also one label less.
