@@ -82,7 +82,9 @@ OCaml emit's an additional label for frametable on GC, my hypothesis is that thi
 
 ## segfault to trigger minor gc
 
-The block after young_ptr needs to always be disabled by mprotect so that when an overflow happens it always triggers a segfault
+The block after young_ptr needs to always be disabled by mprotect so that when an overflow happens it always triggers a segfault.
+
+Problem PAGESIZE may be 64k in macOS m1.
 
 ## use xchg %rsp to allocation
 
