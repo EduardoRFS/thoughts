@@ -79,3 +79,19 @@ Also great on Windows, as Unix.fork is really slow there.
 ## frametable on caml_call_gc
 
 OCaml emit's an additional label for frametable on GC, my hypothesis is that this could be removed so that the label always points one instruction before the jmp, that would lead to slightly better compaction and also one label less.
+
+## segfault to trigger minor gc
+
+The block after young_ptr needs to always be disabled by mprotect so that when an overflow happens it always triggers a segfault
+
+## use xchg %rsp to allocation
+
+Instead of mov with offset we can then do pushq which is considerably smaller
+
+## use smaller register for young_ptr
+
+%r15 could be used for last OCaml argument, and something like %rdi could be used for young_ptr
+
+## use STP for ARM64
+
+It probably allows to reduce instructions
