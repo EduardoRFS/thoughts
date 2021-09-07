@@ -38,3 +38,35 @@ As an example, direct recursion and loops can be compiled to the exact same asse
 ### Termination
 
 In CC some terminations are really easy to check, essentially if there is no rule cycle then no loop can ever happen, unlike the lambda calculus where you can construct fixed point combinators or even the y-combinator.
+
+## Compiling
+
+### Stack Trace
+
+As we're using always continuations the stack trace is now useless, to recover from that one idea is for functions where the depth is small and defined it's possible to emit call instead of jmp.
+
+My first idea was to return a ret callback as continuation should be provided, this can also be faster for some functions as the continuation will always be the same global callback and the branch predictor will be happy with it.
+
+But if the function itself already has bounded stack size maybe it could emit `ret` instead, being the job of the calleer to call the continuation later if needed, this should be even faster as there is no need to use an additional register or load the callback address
+
+### Closures
+
+The full continuation calculus can be compiled easily to closures, those closures can be described as requiring the closure pointer to be always in the same register, and the pointer itself needs to be dereference to access the function pointer, this reduce the need for having helper functions like `caml_apply`.
+
+In x86_64 this looks particularly nice as it can be done as `jmp [rax]`.
+
+Because of this encoding a trick possible is that functions that are just global symbols can have a pointer acquired directly from the `GOTPCREL` so that when the pointer it's called it will dereference the global symbol anyway, avoiding an additional address for them.
+
+### Lambda Lifting
+
+Because of the existance of data terms not every term can be lifted, so high order functions need to support calling closures.
+
+I believe that this can be worked around by making so that only leaf function handle closures, which in the presence of whole program transformation is IO functions and external functions, but external functions can also have explicit signature saying marking if it returns a closure or not.
+
+### call + jmp
+
+I'm not sure if this works, but another interesting approach which may be possible is to do a convention of call + jmp where the first call will always only move registers around and return a pointer to jmp, this allows the encoding of data in a simple style while not requiring closures, the first call will never mess with the stack so the stack can be used.
+
+```cc
+f.a.b.r -> a.(r.a).(r.b)
+```
