@@ -70,6 +70,14 @@ We cannot combine two allocations for mutable and immutable, but ideally we shou
 
 How does this immutability interacts with TRMC? Can we treat TRMC data somehow as immutable? Maybe by first cleaning it?
 
+### parallel minor
+
+To do minor in parallel we need to somehow move the pointers from the minor to major, but while we do that the worker may create references to the old minor in both the immutable and mutable heap, with this the old minor can never be moved as an invalid reference may exists.
+
+Possible ways to handle this is through mprotect and segfault handling or mmap on a mapped fd.
+
+Maybe userfaultfd if this leads to smaller overhead.
+
 ## multiple major heap
 
 As Caml_state already exists with a bit of work we could lift the major heap to it so that in the same process multiple threads can be running it's own OCaml with independent GCs.
