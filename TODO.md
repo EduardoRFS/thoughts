@@ -35,3 +35,7 @@
 ## Life
 
 - [ ] give a look on this file
+
+## Continuation Calculus
+
+- [ ] verify data terms hypothesis
