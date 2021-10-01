@@ -38,7 +38,7 @@ Probably not, and this truly concerns me, what if I keep running the hedonic tre
 
 For a long time I've been thinking that the only way to be happy in the longterm is to be outside of the hedonic treadmill altogether.
 
-The problem is that it seems to me that the way to escape is not just stop running, I believe that stop running or just jumping out of the treadmill will lead to long term insatisfaction. So the only remaining solution is to run faster, faster than I could ever imagine until, at somepoint, it's done, everything is gonne.
+The problem is that it seems to me that the way to escape is not just stop running, I believe that stop running or just jumping out of the treadmill will lead to long term insatisfaction. So the only remaining solution is to run faster, faster than I could ever imagine until, at somepoint, it's done, everything is gone.
 
 Quite likely this is just a dumb dream, but if I'm right, then it will be a really fun long life with a sad end.
 
