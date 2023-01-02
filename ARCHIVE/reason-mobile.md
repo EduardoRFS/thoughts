@@ -1,5 +1,7 @@
 # Reason Mobile
 
+This is archived, as I moved away from the esy ecosystem.
+
 ## Debugging
 
 ### Clash between interfaces

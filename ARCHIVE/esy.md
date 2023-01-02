@@ -1,5 +1,7 @@
 # esy
 
+This is archived, as I moved away from the esy ecosystem.
+
 ## Manifest
 
 esy supports two manifests, `package.json` like manifests and `package.opam` like manifests, you can even mix them.
