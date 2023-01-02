@@ -48,6 +48,10 @@ Should a man always try to pursue knowledge? Or is the ignorance the ultimate bl
 
 I trully don't know, but as a human in this age, I know that I will never be truly happy about my level of knowledge.
 
+In retrospect I think the wording is not correct, I believe I'm happy with my level of knowledge, but I'm still not pleased enough with it.
+
+It is possible to be happy with how much you know and still want to learn more. It is about reconizing the small wins.
+
 ### Social
 
 What if a man is alone? Or even worse, what if all man are also alone?
