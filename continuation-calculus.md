@@ -37,7 +37,14 @@ As an example, direct recursion and loops can be compiled to the exact same asse
 
 ### Termination
 
-In CC some terminations are really easy to check, essentially if there is no rule cycle then no loop can ever happen, unlike the lambda calculus where you can construct fixed point combinators or even the y-combinator.
+~~In CC some terminations are really easy to check, essentially if there is no rule cycle then no loop can ever happen, unlike the lambda calculus where you can construct fixed point combinators or even the y-combinator.~~
+
+This is not true, you can construct the y-combinator
+
+```
+a.x -> x.x
+loop -> a.a
+```
 
 ## Compiling
 
